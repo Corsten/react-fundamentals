@@ -10,14 +10,13 @@
   <script type="module">
     const rootElement = document.getElementById('root')
     
-    const childElements = []
     const words = ['Hello', 'World']
 
-    words.forEach(function (item, index) {
-      childElements.push(React.createElement('span', { children: item }))
+    const childElements = words.map(function (item, index) {
+      return React.createElement('span', { children: item, key: index });
     });
 
-    const reactElement = React.createElement('div', { className: 'container', children: childElements })
+    const reactElement = React.createElement('div', { className: 'container' }, childElements)
 
     ReactDOM.render(reactElement, rootElement)
   </script>

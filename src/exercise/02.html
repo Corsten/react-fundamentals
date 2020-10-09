@@ -10,13 +10,14 @@
   <script type="module">
     const rootElement = document.getElementById('root')
     
-    const words = ['Hello', 'World']
+    const words = ['Hello', ' ', 'World']
 
     const childElements = words.map(function (item, index) {
+      if (item === ' ') return item
       return React.createElement('span', { children: item, key: index });
     });
 
-    const reactElement = React.createElement('div', { className: 'container' }, childElements)
+    const reactElement = React.createElement('div', { className: 'container', children: childElements })
 
     ReactDOM.render(reactElement, rootElement)
   </script>
